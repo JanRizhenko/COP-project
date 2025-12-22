@@ -1,0 +1,128 @@
+.start-page {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-xl) 0;
+}
+
+.start-page__card {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.start-page__hero {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.start-page__title {
+  font-size: var(--font-size-xxl);
+  color: var(--dark-color);
+  margin-bottom: var(--spacing-md);
+  font-weight: 700;
+}
+
+.start-page__description {
+  font-size: var(--font-size-md);
+  color: var(--text-light);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.start-page__rules {
+  background-color: var(--light-color);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  margin: var(--spacing-xl) 0;
+}
+
+.start-page__rules-title {
+  font-size: var(--font-size-lg);
+  color: var(--dark-color);
+  margin-bottom: var(--spacing-md);
+  font-weight: 700;
+}
+
+.start-page__rules-list {
+  list-style: none;
+  padding: 0;
+}
+
+.start-page__rules-list li {
+  padding: var(--spacing-sm) 0;
+  padding-left: var(--spacing-lg);
+  position: relative;
+  font-size: var(--font-size-md);
+  color: var(--text-color);
+}
+
+.start-page__rules-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--secondary-color);
+  font-weight: bold;
+  font-size: var(--font-size-lg);
+}
+
+.start-page__difficulty {
+  margin: var(--spacing-xl) 0;
+}
+
+.start-page__difficulty-title {
+  font-size: var(--font-size-lg);
+  color: var(--dark-color);
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+  font-weight: 700;
+}
+
+.start-page__difficulty-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.start-page__difficulty-option {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.start-page__difficulty-option button {
+  flex: 1;
+}
+
+.start-page__difficulty-desc {
+  font-size: var(--font-size-sm);
+  color: var(--text-light);
+  white-space: nowrap;
+}
+
+.start-page__tip {
+  background: #fff3cd;
+  border-left: 4px solid #ff9800;
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-sm);
+  color: var(--dark-color);
+  margin-top: var(--spacing-xl);
+}
+
+@media (max-width: 768px) {
+  .start-page__title {
+    font-size: var(--font-size-xl);
+  }
+  
+  .start-page__difficulty-option {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .start-page__difficulty-option button {
+    width: 100%;
+  }
+}

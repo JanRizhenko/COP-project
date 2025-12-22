@@ -1,0 +1,32 @@
+.game-board {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-xl);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-large);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.game-board__rods {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  width: 100%;
+  max-width: 900px;
+  padding: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+  .game-board__rods {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xl);
+  }
+  
+  .game-board {
+    padding: var(--spacing-md);
+  }
+}

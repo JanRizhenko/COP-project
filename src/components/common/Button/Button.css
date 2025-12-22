@@ -1,0 +1,70 @@
+.button {
+  font-family: var(--font-family);
+  font-weight: 600;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Варіанти */
+.button--primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.button--primary:hover:not(:disabled) {
+  background-color: #2980b9;
+}
+
+.button--secondary {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.button--secondary:hover:not(:disabled) {
+  background-color: #27ae60;
+}
+
+.button--danger {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.button--danger:hover:not(:disabled) {
+  background-color: #c0392b;
+}
+
+/* Розміри */
+.button--small {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-sm);
+}
+
+.button--medium {
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: var(--font-size-md);
+}
+
+.button--large {
+  padding: var(--spacing-lg) var(--spacing-xxl);
+  font-size: var(--font-size-lg);
+}
