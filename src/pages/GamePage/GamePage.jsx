@@ -79,11 +79,16 @@ const GamePage = ({ difficulty = 3, onExit, onComplete }) => {
                 Goal: move all disks to rod C
               </span>
             </div>
+            <div className="game-page__hint">
+              <span className="game-page__hint-text">
+                   Larger discs cannot be placed on smaller ones
+                </span>
+            </div>
           </div>
 
           {isGameWon && (
-            <div className="game-page__victory">
-              <h3>Congratulations! You Won!</h3>
+              <div className="game-page__victory">
+                <h3>Congratulations! You Won!</h3>
               <p>Redirecting to results...</p>
             </div>
           )}

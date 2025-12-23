@@ -15,8 +15,8 @@
 .rod__label {
   font-size: var(--font-size-lg);
   font-weight: 700;
-  color: white;
-  margin-bottom: var(--spacing-md);
+  color: #774c4c;
+  margin-bottom: 5px;
 }
 
 .rod__container {

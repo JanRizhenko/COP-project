@@ -42,9 +42,6 @@ const StartPage = ({ onStartGame }) => {
                   >
                     {label}
                   </Button>
-                  <span className="start-page__difficulty-desc">
-                    {description} (min: {minMoves} moves)
-                  </span>
                 </div>
               ))}
             </div>
