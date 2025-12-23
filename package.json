@@ -4,9 +4,11 @@
   "description": "Tower of Hanoi Game - Структурований каркас застосунку",
   "private": true,
   "dependencies": {
+    "formik": "^2.4.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "yup": "^1.7.1"
   },
   "scripts": {
     "start": "react-scripts start",

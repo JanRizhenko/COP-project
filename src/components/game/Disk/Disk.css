@@ -58,3 +58,27 @@
   width: 240px;
   background: var(--disk-color-7);
 }
+
+.disk--size-8 {
+  width: 270px;
+  background: var(--disk-color-8);
+}
+
+@media (max-width: 768px) {
+  .disk {
+    height: 35px;
+  }
+
+  .disk--size-1 { width: 45px; }
+  .disk--size-2 { width: 60px; }
+  .disk--size-3 { width: 90px; }
+  .disk--size-4 { width: 120px; }
+  .disk--size-5 { width: 135px; }
+  .disk--size-6 { width: 150px; }
+  .disk--size-7 { width: 165px; }
+  .disk--size-8 { width: 180px; }
+
+  .disk__label {
+    font-size: var(--font-size-sm);
+  }
+}

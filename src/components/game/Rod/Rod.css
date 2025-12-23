@@ -26,7 +26,7 @@
   align-items: center;
   justify-content: flex-end;
   height: 400px;
-  width: 100%;
+  width: 115%;
 }
 
 .rod__pole {
@@ -42,7 +42,7 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  max-width: 280px;
+  max-width: 380px;
   height: 20px;
   background: #5d4037;
   border-radius: var(--border-radius);
