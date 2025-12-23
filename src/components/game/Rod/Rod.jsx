@@ -2,7 +2,7 @@ import React from 'react';
 import Disk from '../Disk/Disk';
 import './Rod.css';
 
-const Rod = ({ rodId, disks = [], onRodClick, selectedDisk, label }) => {
+const Rod = ({ rodId, disks = [], onRodClick, isSelected, label }) => {
   return (
     <div className="rod" onClick={() => onRodClick(rodId)}>
       <div className="rod__label">{label}</div>
@@ -17,11 +17,7 @@ const Rod = ({ rodId, disks = [], onRodClick, selectedDisk, label }) => {
               <Disk
                 key={`${rodId}-${diskSize}-${index}`}
                 size={diskSize}
-                isSelected={index === disks.length - 1 && selectedDisk === diskSize}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onRodClick(rodId);
-                }}
+                isSelected={isSelected && index === disks.length - 1}
               />
             ))
           )}

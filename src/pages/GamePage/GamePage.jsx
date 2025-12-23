@@ -1,42 +1,40 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import GameBoard from '../../components/game/GameBoard/GameBoard';
 import GameControls from '../../components/game/GameControls/GameControls';
 import Button from '../../components/common/Button/Button';
+import { useGameLogic, useTimer } from '../../hooks';
 import './GamePage.css';
 
 const GamePage = ({ difficulty = 3, onExit, onComplete }) => {
-  const initialRods = [
-    Array.from({ length: difficulty }, (_, i) => difficulty - i),
-    [],
-    []
-  ];
+  const {
+    rods,
+    selectedRod,
+    moves,
+    minMoves,
+    isGameWon,
+    handleRodClick,
+    resetGame
+  } = useGameLogic(difficulty);
 
-  const [rods, setRods] = useState(initialRods);
-  const [selectedRod, setSelectedRod] = useState(null);
-  const [moves, setMoves] = useState(0);
-  const [time, setTime] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
+  const {
+    time,
+    isPaused,
+    togglePause,
+    resetTimer
+  } = useTimer(isGameWon);
 
-  const minMoves = Math.pow(2, difficulty) - 1;
-
-  const handleRodClick = (rodId) => {
-    console.log('Rod clicked:', rodId);
-    console.log('Selected rod:', selectedRod);
-  };
+  useEffect(() => {
+    if (isGameWon && onComplete) {
+      setTimeout(() => {
+        onComplete(moves, time);
+      }, 1500);
+    }
+  }, [isGameWon, moves, time, onComplete]);
 
   const handleReset = () => {
-    setRods(initialRods);
-    setSelectedRod(null);
-    setMoves(0);
-    setTime(0);
-    setIsPaused(false);
+    resetGame();
+    resetTimer();
   };
-
-  const handlePause = () => {
-    setIsPaused(!isPaused);
-  };
-
-  const isGameWon = rods[2].length === difficulty;
 
   return (
     <div className="game-page">
@@ -61,13 +59,13 @@ const GamePage = ({ difficulty = 3, onExit, onComplete }) => {
             minMoves={minMoves}
             isPaused={isPaused}
             onReset={handleReset}
-            onPause={handlePause}
+            onPause={togglePause}
           />
 
           <GameBoard
             rods={rods}
             onRodClick={handleRodClick}
-            selectedDisk={selectedRod !== null ? rods[selectedRod]?.[rods[selectedRod].length - 1] : null}
+            selectedRod={selectedRod}
           />
 
           <div className="game-page__hints">
@@ -86,9 +84,7 @@ const GamePage = ({ difficulty = 3, onExit, onComplete }) => {
           {isGameWon && (
             <div className="game-page__victory">
               <h3>Congratulations! You Won!</h3>
-              <Button variant="secondary" onClick={() => onComplete(moves, time)}>
-                View Results
-              </Button>
+              <p>Redirecting to results...</p>
             </div>
           )}
         </div>

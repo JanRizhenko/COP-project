@@ -1,34 +1,24 @@
 import React from 'react';
 import Card from '../../components/common/Card/Card';
 import Button from '../../components/common/Button/Button';
+import { useResultsPage } from '../../hooks';
 import './ResultsPage.css';
 
 const ResultsPage = ({ 
   difficulty = 3,
   moves = 0, 
   time = 0, 
-  minMoves = 7,
   onPlayAgain,
   onMainMenu 
 }) => {
-  const formatTime = (seconds) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins} min ${secs} sec`;
-  };
-
-  const efficiency = Math.round((minMoves / moves) * 100);
-  const isOptimal = moves === minMoves;
-
-  const getPerformanceRating = () => {
-    if (isOptimal) return { text: 'Perfect!', color: '#f1c40f' };
-    if (efficiency >= 90) return { text: 'Excellent!', color: '#4CAF50' };
-    if (efficiency >= 75) return { text: 'Good!', color: '#2196F3' };
-    if (efficiency >= 60) return { text: 'Not Bad!', color: '#ff9800' };
-    return { text: 'Can Do Better!', color: '#f44336' };
-  };
-
-  const rating = getPerformanceRating();
+  const minMoves = Math.pow(2, difficulty) - 1;
+  
+  const {
+    efficiency,
+    isOptimal,
+    performanceRating,
+    formattedTime
+  } = useResultsPage(moves, minMoves, time);
 
   return (
     <div className="results-page">
@@ -36,8 +26,8 @@ const ResultsPage = ({
         <Card className="results-page__card">
           <div className="results-page__header">
             <h2 className="results-page__title">Game Complete!</h2>
-            <p className="results-page__rating" style={{ color: rating.color }}>
-              {rating.text}
+            <p className="results-page__rating" style={{ color: performanceRating.color }}>
+              {performanceRating.text}
             </p>
           </div>
 
@@ -59,7 +49,7 @@ const ResultsPage = ({
 
             <div className="results-page__stat-card">
               <div className="results-page__stat-label">Time</div>
-              <div className="results-page__stat-value">{formatTime(time)}</div>
+              <div className="results-page__stat-value">{formattedTime}</div>
             </div>
 
             <div className="results-page__stat-card results-page__stat-card--wide">
@@ -70,7 +60,7 @@ const ResultsPage = ({
                   className="results-page__efficiency-fill"
                   style={{ 
                     width: `${efficiency}%`,
-                    backgroundColor: rating.color 
+                    backgroundColor: performanceRating.color 
                   }}
                 ></div>
               </div>

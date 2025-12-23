@@ -1,16 +1,11 @@
 import React from 'react';
 import Card from '../../components/common/Card/Card';
 import Button from '../../components/common/Button/Button';
+import { useStartPage } from '../../hooks';
 import './StartPage.css';
 
 const StartPage = ({ onStartGame }) => {
-  const difficulties = [
-    { level: 3, label: 'Easy', description: '3 disks' },
-    { level: 4, label: 'Medium', description: '4 disks' },
-    { level: 5, label: 'Hard', description: '5 disks' },
-    { level: 6, label: 'Expert', description: '6 disks' },
-    { level: 7, label: 'Master', description: '7 disks' }
-  ];
+  const { difficulties } = useStartPage();
 
   return (
     <div className="start-page">
@@ -38,7 +33,7 @@ const StartPage = ({ onStartGame }) => {
           <div className="start-page__difficulty">
             <h3 className="start-page__difficulty-title">Choose Difficulty Level:</h3>
             <div className="start-page__difficulty-buttons">
-              {difficulties.map(({ level, label, description }) => (
+              {difficulties.map(({ level, label, description, minMoves }) => (
                 <div key={level} className="start-page__difficulty-option">
                   <Button
                     variant="primary"
@@ -47,7 +42,9 @@ const StartPage = ({ onStartGame }) => {
                   >
                     {label}
                   </Button>
-                  <span className="start-page__difficulty-desc">{description}</span>
+                  <span className="start-page__difficulty-desc">
+                    {description} (min: {minMoves} moves)
+                  </span>
                 </div>
               ))}
             </div>

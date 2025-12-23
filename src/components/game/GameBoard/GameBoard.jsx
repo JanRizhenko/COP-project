@@ -5,7 +5,7 @@ import './GameBoard.css';
 const GameBoard = ({ 
   rods = [[], [], []],
   onRodClick,
-  selectedDisk
+  selectedRod
 }) => {
   return (
     <div className="game-board">
@@ -15,21 +15,21 @@ const GameBoard = ({
           label="Rod A"
           disks={rods[0]}
           onRodClick={onRodClick}
-          selectedDisk={selectedDisk}
+          isSelected={selectedRod === 0}
         />
         <Rod
           rodId={1}
           label="Rod B"
           disks={rods[1]}
           onRodClick={onRodClick}
-          selectedDisk={selectedDisk}
+          isSelected={selectedRod === 1}
         />
         <Rod
           rodId={2}
           label="Rod C"
           disks={rods[2]}
           onRodClick={onRodClick}
-          selectedDisk={selectedDisk}
+          isSelected={selectedRod === 2}
         />
       </div>
     </div>
