@@ -8,7 +8,9 @@ const GameControls = ({
                           minMoves,
                           isPaused,
                           onReset,
-                          onPause
+                          onPause,
+                          timeLimit,
+                          maxMoves
                       }) => {
     const formatTime = (seconds) => {
         const mins = Math.floor(seconds / 60);
@@ -16,18 +18,27 @@ const GameControls = ({
         return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
     };
 
+    const isTimeCritical = timeLimit && time >= timeLimit * 0.8;
+    const isMovesCritical = maxMoves && moves >= maxMoves * 0.8;
+
     return (
         <div className="game-controls">
             <div className="game-controls__stats">
-                <div className="game-controls__stat">
+                <div className={`game-controls__stat ${isMovesCritical ? 'game-controls__stat--warning' : ''}`}>
                     <span className="game-controls__stat-label">Moves:</span>
-                    <span className="game-controls__stat-value">{moves}</span>
+                    <span className="game-controls__stat-value">
+            {moves}
+                        {maxMoves && ` / ${maxMoves}`}
+          </span>
                 </div>
 
                 {time !== null && (
-                    <div className="game-controls__stat">
+                    <div className={`game-controls__stat ${isTimeCritical ? 'game-controls__stat--warning' : ''}`}>
                         <span className="game-controls__stat-label">Time:</span>
-                        <span className="game-controls__stat-value">{formatTime(time)}</span>
+                        <span className="game-controls__stat-value">
+              {formatTime(time)}
+                            {timeLimit && ` / ${formatTime(timeLimit)}`}
+            </span>
                     </div>
                 )}
 
@@ -40,7 +51,7 @@ const GameControls = ({
             <div className="game-controls__buttons">
                 {onPause && (
                     <Button
-                        variant="secondary"
+                        variant={isPaused ? "warning" : "secondary"}
                         size="small"
                         onClick={onPause}
                     >

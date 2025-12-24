@@ -25,14 +25,13 @@
   cursor: not-allowed;
 }
 
-/* Варіанти */
 .button--primary {
   background-color: var(--primary-color);
   color: white;
 }
 
 .button--primary:hover:not(:disabled) {
-  background-color: #2980b9;
+  background-color: #1976D2;
 }
 
 .button--secondary {
@@ -41,7 +40,7 @@
 }
 
 .button--secondary:hover:not(:disabled) {
-  background-color: #27ae60;
+  background-color: #388E3C;
 }
 
 .button--danger {
@@ -50,10 +49,18 @@
 }
 
 .button--danger:hover:not(:disabled) {
-  background-color: #c0392b;
+  background-color: #D32F2F;
 }
 
-/* Розміри */
+.button--warning {
+  background-color: #ff9800;
+  color: white;
+}
+
+.button--warning:hover:not(:disabled) {
+  background-color: #F57C00;
+}
+
 .button--small {
   padding: var(--spacing-sm) var(--spacing-md);
   font-size: var(--font-size-sm);

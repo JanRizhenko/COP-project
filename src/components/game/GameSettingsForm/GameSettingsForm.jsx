@@ -14,7 +14,22 @@ const GameSettingsSchema = Yup.object().shape({
         .max(20, 'Name must be at most 20 characters')
         .required('Please enter your name'),
     showTimer: Yup.boolean(),
-    showHints: Yup.boolean()
+    showHints: Yup.boolean(),
+    timeLimit: Yup.number()
+        .min(0, 'Time limit cannot be negative')
+        .integer('Time limit must be a whole number')
+        .nullable()
+        .transform((value, originalValue) => originalValue === '' ? null : value),
+    maxMoves: Yup.number()
+        .integer('Max moves must be a whole number')
+        .nullable()
+        .transform((value, originalValue) => originalValue === '' ? null : value)
+        .test('min-moves-check', 'Max moves cannot be less than required minimum', function(value) {
+            if (value === null || value === undefined) return true;
+            const difficulty = this.parent.difficulty;
+            const minRequired = Math.pow(2, difficulty) - 1;
+            return value >= minRequired;
+        })
 });
 
 const GameSettingsForm = ({ onSubmit, onCancel }) => {
@@ -32,7 +47,9 @@ const GameSettingsForm = ({ onSubmit, onCancel }) => {
         difficulty: 3,
         playerName: '',
         showTimer: true,
-        showHints: true
+        showHints: true,
+        timeLimit: null,
+        maxMoves: null
     };
 
     const handleSubmit = (values) => {
@@ -101,6 +118,50 @@ const GameSettingsForm = ({ onSubmit, onCancel }) => {
                             />
                         </div>
 
+                        <div className="form-row">
+                            <div className="form-group form-group--half">
+                                <label htmlFor="timeLimit" className="form-label">
+                                    Time Limit (seconds)
+                                </label>
+                                <Field
+                                    type="number"
+                                    id="timeLimit"
+                                    name="timeLimit"
+                                    className="form-input"
+                                    placeholder="No limit"
+                                    min="0"
+                                />
+                                <ErrorMessage
+                                    name="timeLimit"
+                                    component="div"
+                                    className="form-error"
+                                />
+                                <span className="form-hint">Leave empty for no time limit</span>
+                            </div>
+
+                            <div className="form-group form-group--half">
+                                <label htmlFor="maxMoves" className="form-label">
+                                    Max Moves
+                                </label>
+                                <Field
+                                    type="number"
+                                    id="maxMoves"
+                                    name="maxMoves"
+                                    className="form-input"
+                                    placeholder="No limit"
+                                    min={Math.pow(2, values.difficulty) - 1}
+                                />
+                                <ErrorMessage
+                                    name="maxMoves"
+                                    component="div"
+                                    className="form-error"
+                                />
+                                <span className="form-hint">
+                  Min: {Math.pow(2, values.difficulty) - 1} moves
+                </span>
+                            </div>
+                        </div>
+
                         <div className="form-group">
                             <div className="form-checkbox-group">
                                 <label className="form-checkbox">
@@ -122,6 +183,16 @@ const GameSettingsForm = ({ onSubmit, onCancel }) => {
                             <p className="settings-info__text">
                                 Minimum moves required: <strong>{difficultyLevels.find(l => l.value === Number(values.difficulty))?.minMoves}</strong>
                             </p>
+                            {values.timeLimit && (
+                                <p className="settings-info__text">
+                                    Time limit: <strong>{values.timeLimit} seconds</strong>
+                                </p>
+                            )}
+                            {values.maxMoves && (
+                                <p className="settings-info__text">
+                                    Maximum moves: <strong>{values.maxMoves}</strong>
+                                </p>
+                            )}
                         </div>
 
                         <div className="form-actions">

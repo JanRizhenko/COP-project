@@ -1,23 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams, useLocation } from 'react-router-dom';
 import Card from '../../components/common/Card/Card';
 import Button from '../../components/common/Button/Button';
 import GameSettingsForm from '../../components/game/GameSettingsForm/GameSettingsForm';
+import { useGame } from '../../context/GameContext';
 import './StartPage.css';
 
-const StartPage = ({ onStartGame }) => {
+const StartPage = () => {
+  const { playerId } = useParams();
+  const location = useLocation();
+  const { startGame } = useGame();
   const [showSettings, setShowSettings] = useState(false);
 
+  useEffect(() => {
+    if (location.state?.openCustomGame) {
+      setShowSettings(true);
+      // Clear the state so it doesn't reopen on refresh
+      window.history.replaceState({}, document.title);
+    }
+  }, [location]);
+
   const handleQuickStart = (difficulty) => {
-    onStartGame({
+    startGame({
       difficulty,
-      playerName: 'Player',
+      playerName: playerId ? playerId.split('-')[0] : 'Player',
       showTimer: true,
-      showHints: true
+      showHints: true,
+      timeLimit: null,
+      maxMoves: null
     });
   };
 
   const handleSettingsSubmit = (settings) => {
-    onStartGame(settings);
+    startGame(settings);
   };
 
   if (showSettings) {

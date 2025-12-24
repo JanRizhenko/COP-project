@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export const useGameLogic = (difficulty) => {
+export const useGameLogic = (difficulty, maxMoves = null, timeLimit = null) => {
   const getStorageKey = () => `game_progress_${difficulty}`;
 
   const initializeRods = () => {
@@ -20,7 +20,8 @@ export const useGameLogic = (difficulty) => {
           return {
             rods: data.rods,
             moves: data.moves || 0,
-            isGameWon: data.isGameWon || false
+            isGameWon: false,
+            isGameLost: false
           };
         }
       }
@@ -30,7 +31,8 @@ export const useGameLogic = (difficulty) => {
     return {
       rods: initializeRods(),
       moves: 0,
-      isGameWon: false
+      isGameWon: false,
+      isGameLost: false
     };
   };
 
@@ -39,67 +41,103 @@ export const useGameLogic = (difficulty) => {
   const [rods, setRods] = useState(savedProgress.rods);
   const [selectedRod, setSelectedRod] = useState(null);
   const [moves, setMoves] = useState(savedProgress.moves);
-  const [isGameWon, setIsGameWon] = useState(savedProgress.isGameWon);
+  const [isGameWon, setIsGameWon] = useState(false);
+  const [isGameLost, setIsGameLost] = useState(false);
 
   const minMoves = Math.pow(2, difficulty) - 1;
 
   useEffect(() => {
-    try {
-      const gameProgress = {
-        difficulty,
-        rods,
-        moves,
-        isGameWon
-      };
-      localStorage.setItem(getStorageKey(), JSON.stringify(gameProgress));
-    } catch (error) {
-      console.error('Error saving game progress:', error);
+    if (!isGameWon && !isGameLost) {
+      try {
+        const gameProgress = {
+          difficulty,
+          rods,
+          moves
+        };
+        localStorage.setItem(getStorageKey(), JSON.stringify(gameProgress));
+      } catch (error) {
+        console.error('Error saving game progress:', error);
+      }
     }
-  }, [rods, moves, isGameWon, difficulty]);
+  }, [rods, moves, difficulty, isGameWon, isGameLost]);
 
   const handleRodClick = (rodId) => {
-    if (isGameWon) return;
+    if (isGameWon || isGameLost) return;
 
-    setSelectedRod(prevSelected => {
-      if (prevSelected === null) {
-        return rods[rodId].length > 0 ? rodId : null;
-      } else {
-        if (prevSelected === rodId) {
-          return null;
-        } else {
-          setRods(currentRods => {
-            if (currentRods[prevSelected].length === 0) {
-              return currentRods;
-            }
-
-            const fromDisk = currentRods[prevSelected][currentRods[prevSelected].length - 1];
-            const canMove = currentRods[rodId].length === 0 ||
-                fromDisk < currentRods[rodId][currentRods[rodId].length - 1];
-
-            if (canMove) {
-              const newRods = currentRods.map(rod => [...rod]);
-              const disk = newRods[prevSelected].pop();
-              newRods[rodId].push(disk);
-
-              setMoves(prev => prev + 1);
-              return newRods;
-            }
-
-            return currentRods;
-          });
-
-          return null;
-        }
+    if (selectedRod === null) {
+      if (rods[rodId].length > 0) {
+        setSelectedRod(rodId);
       }
-    });
+    } else if (selectedRod === rodId) {
+      setSelectedRod(null);
+    } else {
+      if (rods[selectedRod].length === 0) {
+        setSelectedRod(null);
+        return;
+      }
+
+      const fromDisk = rods[selectedRod][rods[selectedRod].length - 1];
+      const canMove = rods[rodId].length === 0 ||
+          fromDisk < rods[rodId][rods[rodId].length - 1];
+
+      if (canMove) {
+        const newRods = rods.map(rod => [...rod]);
+        const disk = newRods[selectedRod].pop();
+        newRods[rodId].push(disk);
+
+        const hasWon = newRods[2].length === difficulty;
+        const newMoves = moves + 1;
+
+        console.log('Move Debug:', {
+          move: `Rod ${selectedRod} → Rod ${rodId}`,
+          disk: disk,
+          rodA: newRods[0].length,
+          rodB: newRods[1].length,
+          rodC: newRods[2].length,
+          difficulty: difficulty,
+          hasWon: hasWon,
+          rodCArray: newRods[2],
+          winCheck: `${newRods[2].length} === ${difficulty} = ${newRods[2].length === difficulty}`,
+          currentMoves: newMoves,
+          maxMoves: maxMoves
+        });
+
+        setRods(newRods);
+        setSelectedRod(null);
+        setMoves(newMoves);
+
+        if (hasWon) {
+          console.log('WIN DETECTED! Setting state now...');
+          setIsGameWon(true);
+          try {
+            localStorage.removeItem(getStorageKey());
+          } catch (error) {
+            console.error('Error clearing storage:', error);
+          }
+        } else if (maxMoves && newMoves >= maxMoves) {
+          console.log('LOSS: Max moves exceeded');
+          setIsGameLost(true);
+          try {
+            localStorage.removeItem(getStorageKey());
+          } catch (error) {
+            console.error('Error clearing storage:', error);
+          }
+        }
+      } else {
+        // Invalid move, just deselect
+        setSelectedRod(null);
+      }
+    }
   };
 
   const resetGame = () => {
+    console.log('Resetting game...');
     const newRods = initializeRods();
     setRods(newRods);
     setSelectedRod(null);
     setMoves(0);
     setIsGameWon(false);
+    setIsGameLost(false);
 
     try {
       localStorage.removeItem(getStorageKey());
@@ -109,23 +147,26 @@ export const useGameLogic = (difficulty) => {
   };
 
   useEffect(() => {
-    if (rods[2].length === difficulty && !isGameWon) {
-      setIsGameWon(true);
-      try {
-        localStorage.removeItem(getStorageKey());
-      } catch (error) {
-        console.error('Error clearing game progress:', error);
-      }
-    }
-  }, [rods, difficulty, isGameWon]);
-
-  useEffect(() => {
+    console.log('Difficulty changed, loading progress...');
     const savedProgress = loadGameProgress();
     setRods(savedProgress.rods);
     setMoves(savedProgress.moves);
-    setIsGameWon(savedProgress.isGameWon);
+    setIsGameWon(false);
+    setIsGameLost(false);
     setSelectedRod(null);
   }, [difficulty]);
+
+  const triggerLoss = () => {
+    console.log('Time limit reached, triggering loss...');
+    if (!isGameWon && !isGameLost) {
+      setIsGameLost(true);
+      try {
+        localStorage.removeItem(getStorageKey());
+      } catch (error) {
+        console.error('Error clearing storage:', error);
+      }
+    }
+  };
 
   return {
     rods,
@@ -133,7 +174,9 @@ export const useGameLogic = (difficulty) => {
     moves,
     minMoves,
     isGameWon,
+    isGameLost,
     handleRodClick,
-    resetGame
+    resetGame,
+    triggerLoss
   };
 };

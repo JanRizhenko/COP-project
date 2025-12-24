@@ -33,6 +33,23 @@
   color: var(--dark-color);
 }
 
+.game-controls__stat--warning {
+  animation: pulse-warning 1s ease-in-out infinite;
+}
+
+.game-controls__stat--warning .game-controls__stat-value {
+  color: #f44336;
+}
+
+@keyframes pulse-warning {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
 .game-controls__buttons {
   display: flex;
   gap: var(--spacing-md);
@@ -55,5 +72,21 @@
 
   .game-controls__buttons button {
     flex: 1;
+  }
+}
+.game-controls__stat--warning {
+  animation: pulse-warning 1s ease-in-out infinite;
+}
+
+.game-controls__stat--warning .game-controls__stat-value {
+  color: #f44336;
+}
+
+@keyframes pulse-warning {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
   }
 }

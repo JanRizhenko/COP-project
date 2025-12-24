@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 
-export const useTimer = (isGameWon, difficulty) => {
+export const useTimer = (isGameWon, difficulty, moves) => {
   const getStorageKey = () => `game_timer_${difficulty}`;
 
   const loadSavedTime = () => {
@@ -18,6 +18,14 @@ export const useTimer = (isGameWon, difficulty) => {
 
   const [time, setTime] = useState(loadSavedTime());
   const [isPaused, setIsPaused] = useState(false);
+  const [isStopped, setIsStopped] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
+
+  useEffect(() => {
+    if (moves > 0 && !hasStarted) {
+      setHasStarted(true);
+    }
+  }, [moves, hasStarted]);
 
   useEffect(() => {
     if (difficulty !== undefined) {
@@ -30,22 +38,29 @@ export const useTimer = (isGameWon, difficulty) => {
   }, [time, difficulty]);
 
   useEffect(() => {
-    if (isPaused || isGameWon) return;
+    if (!hasStarted || isPaused || isGameWon || isStopped) return;
 
     const interval = setInterval(() => {
       setTime(prev => prev + 1);
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [isPaused, isGameWon]);
+  }, [hasStarted, isPaused, isGameWon, isStopped]);
 
   const togglePause = useCallback(() => {
     setIsPaused(prev => !prev);
   }, []);
 
+  const stopTimer = useCallback(() => {
+    setIsStopped(true);
+    setIsPaused(false);
+  }, []);
+
   const resetTimer = useCallback(() => {
     setTime(0);
     setIsPaused(false);
+    setIsStopped(false);
+    setHasStarted(false);
     if (difficulty !== undefined) {
       try {
         localStorage.removeItem(getStorageKey());
@@ -59,6 +74,8 @@ export const useTimer = (isGameWon, difficulty) => {
     const savedTime = loadSavedTime();
     setTime(savedTime);
     setIsPaused(false);
+    setIsStopped(false);
+    setHasStarted(false);
   }, [difficulty]);
 
   useEffect(() => {
@@ -75,6 +92,7 @@ export const useTimer = (isGameWon, difficulty) => {
     time,
     isPaused,
     togglePause,
-    resetTimer
+    resetTimer,
+    stopTimer
   };
 };
