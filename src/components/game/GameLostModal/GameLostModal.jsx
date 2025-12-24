@@ -10,7 +10,7 @@ const GameLostModal = ({
                            time,
                            difficulty,
                            playerName,
-                           lossReason, // 'moves' or 'time'
+                           lossReason,
                            maxMoves,
                            timeLimit,
                            onTryAgain,

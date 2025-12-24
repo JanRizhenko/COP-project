@@ -124,7 +124,6 @@ export const useGameLogic = (difficulty, maxMoves = null, timeLimit = null) => {
           }
         }
       } else {
-        // Invalid move, just deselect
         setSelectedRod(null);
       }
     }

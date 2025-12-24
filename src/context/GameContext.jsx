@@ -72,7 +72,7 @@ export const GameProvider = ({ children }) => {
             playerId,
             gameSettings: {
                 ...settings,
-                difficulty: Number(settings.difficulty), // Ensure it's a number
+                difficulty: Number(settings.difficulty),
                 moves: 0,
                 time: 0
             }

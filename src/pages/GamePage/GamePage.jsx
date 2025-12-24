@@ -29,7 +29,6 @@ const GamePage = () => {
 
     const { time, isPaused, togglePause, resetTimer } = useTimer(isGameWon || isGameLost, difficulty, moves);
 
-    // Check for time limit loss
     useEffect(() => {
         if (timeLimit && time >= timeLimit && !isGameWon && !isGameLost) {
             triggerLoss();

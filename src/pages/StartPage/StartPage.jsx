@@ -15,7 +15,6 @@ const StartPage = () => {
   useEffect(() => {
     if (location.state?.openCustomGame) {
       setShowSettings(true);
-      // Clear the state so it doesn't reopen on refresh
       window.history.replaceState({}, document.title);
     }
   }, [location]);
