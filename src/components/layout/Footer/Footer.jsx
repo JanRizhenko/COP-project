@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="container">
         <p className="footer__text">
-          © 2024 Tower of Hanoi | Educational Project
+          2025 Tower of Hanoi | Educational Project | Made By Rizhenko Jan
         </p>
       </div>
     </footer>

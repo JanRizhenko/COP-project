@@ -71,7 +71,7 @@ export const GameProvider = ({ children }) => {
         setGameState({
             playerId,
             gameSettings: {
-                ...settings,
+                ...settings ,
                 difficulty: Number(settings.difficulty),
                 moves: 0,
                 time: 0
