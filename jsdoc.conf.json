@@ -1,0 +1,22 @@
+{
+  "source": {
+    "include": ["./src"],
+    "includePattern": ".+\\.(js|jsx)$",
+    "excludePattern": "(node_modules/|\\.stories\\.|setupTests|reportWebVitals)"
+  },
+  "plugins": ["plugins/markdown", "node_modules/jsdoc-babel"],
+  "babel": {
+    "extensions": [".js", ".jsx"],
+    "presets": ["@babel/preset-react"]
+  },
+  "opts": {
+    "destination": "./docs/jsdoc",
+    "recurse": true,
+    "readme": "./README.md"
+  },
+  "templates": {
+    "default": {
+      "includeDate": true
+    }
+  }
+}

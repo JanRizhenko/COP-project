@@ -13,6 +13,23 @@
   margin: 0;
 }
 
+.footer__legal {
+  text-align: center;
+  font-size: var(--font-size-sm);
+  margin: 8px 0 0;
+  opacity: 0.95;
+}
+
+.footer__legal a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer__legal a:hover {
+  opacity: 0.9;
+}
+
 @media (max-width: 768px) {
   .footer {
     padding: var(--spacing-md) 0;

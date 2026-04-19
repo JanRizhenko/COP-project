@@ -2,6 +2,13 @@ import React from 'react';
 import Rod from '../Rod/Rod';
 import './GameBoard.css';
 
+/**
+ * Поле з трьома стрижнями та дисками (композиція Rod + Disk).
+ * @param {object} props
+ * @param {Array<Array<number>>} [props.rods] Три масиви розмірів дисків.
+ * @param {Function} [props.onRodClick] Викликається з індексом стрижня.
+ * @param {number|null} [props.selectedRod]
+ */
 const GameBoard = ({ 
   rods = [[], [], []],
   onRodClick,

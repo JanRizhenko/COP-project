@@ -8,9 +8,15 @@
 
 # Production
 /build
+/storybook-static
 
 # Misc
 .DS_Store
+
+# Generated from repo root by scripts/sync-legal.cjs (do not edit in public/)
+/public/PRIVACY_POLICY.md
+/public/USER_GUIDE.md
+/public/LICENSE
 .env.local
 .env.development.local
 .env.test.local
@@ -26,3 +32,6 @@ yarn-error.log*
 *.swp
 *.swo
 *~
+
+*storybook.log
+storybook-static

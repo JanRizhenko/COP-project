@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1>Hanoi Tower Game</h1>
+<p>Навчальний веб-проєкт — гра «Вежі Ганоя» на <strong>React 18</strong> і <strong>react-scripts 5</strong> (Create React App). Репозиторій містить політику конфіденційності, інструкцію користувача, згенеровану JSDoc-документацію, Storybook та звіт про ліцензії залежностей.</p>
+<h2>Авторство</h2>
+<p><strong>Jan Rizhenko</strong> — автор коду та документації цього репозиторію (див. також підпис у футері застосунку).</p>
+<h2>Ліцензія</h2>
+<p>Проєкт поширюється на умовах <strong>MIT</strong>. Повний текст: файл <a href="./LICENSE"><code>LICENSE</code></a> у корені.</p>
+<p>Залежності <code>npm</code> мають власні ліцензії; зведений звіт генерується інструментом <code>license-checker</code> і зберігається у <a href="./LICENSE-REPORT.md"><code>LICENSE-REPORT.md</code></a> (перегенерація — нижче).</p>
+<h2>Юридичні та інформаційні документи</h2>
+<table>
+<thead>
+<tr>
+<th>Файл</th>
+<th>Опис</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="./PRIVACY_POLICY.md"><code>PRIVACY_POLICY.md</code></a></td>
+<td>Політика конфіденційності (GDPR-орієнтований опис обробки даних).</td>
+</tr>
+<tr>
+<td><a href="./USER_GUIDE.md"><code>USER_GUIDE.md</code></a></td>
+<td>Інструкція користувача, обмеження відповідальності, посилання на політику.</td>
+</tr>
+</tbody>
+</table>
+<p>У застосунку після <code>npm start</code> / збірки доступні маршрути <strong><code>/privacy</code></strong> та <strong><code>/guide</code></strong> (контент підвантажується з копій файлів у <code>public/</code>, які синхронізуються скриптом <code>prestart</code> / <code>prebuild</code>).</p>
+<h2>Вимоги</h2>
+<ul>
+<li><strong>Node.js</strong> (рекомендовано LTS)</li>
+<li><strong>npm</strong> 9+</li>
+</ul>
+<h2>Конфігурація середовища</h2>
+<p>Стандартні змінні Create React App (опційно), наприклад:</p>
+<ul>
+<li><code>PORT</code> — порт dev-сервера (за замовчуванням <code>3000</code>).</li>
+<li><code>BROWSER</code> — <code>none</code>, щоб не відкривати браузер автоматично.</li>
+</ul>
+<p>Файли <code>.env.local</code> не комітяться (див. <code>.gitignore</code>).</p>
+<h2>Основні команди</h2>
+<pre class="prettyprint source lang-bash"><code>npm install              # залежності
+npm start                # dev-сервер (перед стартом копіює legal *.md у public/)
+npm run build            # production-збірка у каталог build/
+npm test                 # тести (react-scripts)
+</code></pre>
+<p>Документація та якість:</p>
+<pre class="prettyprint source lang-bash"><code>npm run docs:jsdoc       # згенерувати JSDoc у docs/jsdoc/ (відкрийте docs/jsdoc/index.html)
+npm run licenses:report  # оновити LICENSE-REPORT.md (license-checker)
+npm run storybook        # Storybook на порту 6006
+npm run build-storybook  # статична збірка Storybook у storybook-static/
+</code></pre>
+<h2>GDPR і cookie-банер</h2>
+<p>У корені застосунку відображається банер згоди (бібліотека <code>react-cookie-consent</code>). Тексти та посилання на політику налаштовуються у <code>src/config/cookieConsent.config.js</code>. Детальний опис категорій даних — у <code>PRIVACY_POLICY.md</code>.</p>
+<h2>Структура (скорочено)</h2>
+<ul>
+<li><code>src/</code> — код React (сторінки, компоненти, контекст, хуки).</li>
+<li><code>public/</code> — статичні файли; копії <code>PRIVACY_POLICY.md</code>, <code>USER_GUIDE.md</code> та <code>LICENSE</code> створюються скриптом <code>scripts/sync-legal.cjs</code> (ці копії в <code>public/</code> не комітяться — джерело в корені репозиторію).</li>
+<li><code>docs/jsdoc/</code> — <strong>згенерована</strong> API-документація (не редагувати вручну; регенерувати <code>npm run docs:jsdoc</code>).</li>
+<li><code>.storybook/</code> — конфігурація Storybook.</li>
+<li><code>jsdoc.conf.json</code> — конфігурація JSDoc.</li>
+</ul>
+<h2>Перевірка ліцензій залежностей</h2>
+<p>Звіт у корені <strong><code>LICENSE-REPORT.md</code></strong> створюється командою:</p>
+<pre class="prettyprint source lang-bash"><code>npm run licenses:report
+</code></pre>
+<p>Використовується пакет <a href="https://www.npmjs.com/package/license-checker"><code>license-checker</code></a> (обхід повного дерева залежностей). Після оновлення <code>package.json</code> варто перегенерувати звіт і закомітити оновлений файл.</p>
+<h2>Додаткова документація</h2>
+<ul>
+<li><strong>JSDoc:</strong> <code>npm run docs:jsdoc</code> → <code>docs/jsdoc/index.html</code>.</li>
+<li><strong>Storybook:</strong> <code>npm run storybook</code> — історії для базового компонента <code>Button</code> і складного <code>GameBoard</code>.</li>
+</ul></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Button">Button</a></li><li><a href="global.html#CookieConsentBanner">CookieConsentBanner</a></li><li><a href="global.html#GameBoard">GameBoard</a></li><li><a href="global.html#GameProvider">GameProvider</a></li><li><a href="global.html#LegalMarkdownPage">LegalMarkdownPage</a></li><li><a href="global.html#cookieConsentConfig">cookieConsentConfig</a></li><li><a href="global.html#useGame">useGame</a></li><li><a href="global.html#useGameLogic">useGameLogic</a></li><li><a href="global.html#useGameState">useGameState</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Sun Apr 19 2026 17:26:12 GMT+0300 (за східноєвропейським літнім часом)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
