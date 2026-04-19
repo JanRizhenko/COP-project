@@ -29,17 +29,17 @@ checker.init(
       .sort((a, b) => a.pkg.localeCompare(b.pkg));
 
     const lines = [
-      '# Звіт про ліцензії залежностей',
+      '# Dependency License Report',
       '',
-      'Файл згенеровано інструментом [`license-checker`](https://www.npmjs.com/package/license-checker) для повного дерева `npm` залежностей (включно з dev).',
+      'Generated with [`license-checker`](https://www.npmjs.com/package/license-checker) for the full `npm` dependency tree (including dev dependencies).',
       '',
-      'Перегенерувати локально:',
+      'Regenerate locally:',
       '',
       '```bash',
       'npm run licenses:report',
       '```',
       '',
-      '| Пакет | Ліцензія | Репозиторій / URL |',
+      '| Package | License | Repository / URL |',
       '| --- | --- | --- |',
     ];
 
@@ -49,7 +49,7 @@ checker.init(
       lines.push(`| ${r.pkg} | ${safeLic} | ${safeUrl} |`);
     }
 
-    lines.push('', `*Записів: ${rows.length}.*`);
+    lines.push('', `*Entries: ${rows.length}.*`);
     fs.writeFileSync(outPath, `${lines.join('\n')}\n`, 'utf8');
     console.log(`[license-report] Wrote ${outPath}`);
   }

@@ -1,14 +1,14 @@
-# Звіт про ліцензії залежностей
+# Dependency License Report
 
-Файл згенеровано інструментом [`license-checker`](https://www.npmjs.com/package/license-checker) для повного дерева `npm` залежностей (включно з dev).
+Generated with [`license-checker`](https://www.npmjs.com/package/license-checker) for the full `npm` dependency tree (including dev dependencies).
 
-Перегенерувати локально:
+Regenerate locally:
 
 ```bash
 npm run licenses:report
 ```
 
-| Пакет | Ліцензія | Репозиторій / URL |
+| Package | License | Repository / URL |
 | --- | --- | --- |
 | @adobe/css-tools@4.4.4 | MIT |  |
 | @alloc/quick-lru@5.2.0 | MIT | https://sindresorhus.com |
@@ -1480,4 +1480,4 @@ npm run licenses:report
 | yup@1.7.1 | MIT |  |
 | zwitch@2.0.4 | MIT | https://wooorm.com |
 
-*Записів: 1469.*
+*Entries: 1469.*

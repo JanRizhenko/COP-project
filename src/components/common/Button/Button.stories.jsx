@@ -9,22 +9,22 @@ const meta = {
   tags: ['autodocs'],
   args: {
     onClick: fn(),
-    children: 'Дія',
+    children: 'Action',
   },
   argTypes: {
     variant: {
       control: 'select',
       options: ['primary', 'secondary'],
-      description: 'Візуальний варіант кнопки.',
+      description: 'Button visual variant.',
     },
     size: {
       control: 'select',
       options: ['small', 'medium', 'large'],
-      description: 'Розмір кнопки.',
+      description: 'Button size.',
     },
     disabled: {
       control: 'boolean',
-      description: 'Блокує кліки та змінює стиль.',
+      description: 'Disables clicks and updates style.',
     },
   },
   parameters: {
@@ -34,29 +34,29 @@ const meta = {
 
 export default meta;
 
-/** Основна дія на сторінці. */
+/** Primary action on a page. */
 export const Primary = {
   args: {
     variant: 'primary',
     size: 'medium',
-    children: 'Почати гру',
+    children: 'Start Game',
   },
 };
 
-/** Другорядна дія (скасування, назад). */
+/** Secondary action (cancel/back). */
 export const Secondary = {
   args: {
     variant: 'secondary',
     size: 'medium',
-    children: 'Назад',
+    children: 'Back',
   },
 };
 
-/** Великий розмір для акценту на мобільних екранах. */
+/** Larger size for stronger emphasis. */
 export const LargePrimary = {
   args: {
     variant: 'primary',
     size: 'large',
-    children: 'Продовжити',
+    children: 'Continue',
   },
 };

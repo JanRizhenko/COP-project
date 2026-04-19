@@ -44,75 +44,75 @@
 
     <section>
         <article><h1>Hanoi Tower Game</h1>
-<p>Навчальний веб-проєкт — гра «Вежі Ганоя» на <strong>React 18</strong> і <strong>react-scripts 5</strong> (Create React App). Репозиторій містить політику конфіденційності, інструкцію користувача, згенеровану JSDoc-документацію, Storybook та звіт про ліцензії залежностей.</p>
-<h2>Авторство</h2>
-<p><strong>Jan Rizhenko</strong> — автор коду та документації цього репозиторію (див. також підпис у футері застосунку).</p>
-<h2>Ліцензія</h2>
-<p>Проєкт поширюється на умовах <strong>MIT</strong>. Повний текст: файл <a href="./LICENSE"><code>LICENSE</code></a> у корені.</p>
-<p>Залежності <code>npm</code> мають власні ліцензії; зведений звіт генерується інструментом <code>license-checker</code> і зберігається у <a href="./LICENSE-REPORT.md"><code>LICENSE-REPORT.md</code></a> (перегенерація — нижче).</p>
-<h2>Юридичні та інформаційні документи</h2>
+<p>Tower of Hanoi game built with <strong>React 18</strong> and <strong>react-scripts 5</strong> (Create React App). The repository includes privacy/legal docs, generated JSDoc docs, Storybook, and a dependency license report.</p>
+<h2>Authorship</h2>
+<p><strong>Jan Rizhenko</strong> is the author of the code and documentation in this repository (also listed in the app footer).</p>
+<h2>License</h2>
+<p>This project is distributed under the <strong>MIT</strong> license. Full text: <a href="./LICENSE"><code>LICENSE</code></a> in the repository root.</p>
+<p><code>npm</code> dependencies have their own licenses. The report is generated with <code>license-checker</code> and stored in <a href="./LICENSE-REPORT.md"><code>LICENSE-REPORT.md</code></a>.</p>
+<h2>Legal And Info Documents</h2>
 <table>
 <thead>
 <tr>
-<th>Файл</th>
-<th>Опис</th>
+<th>File</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><a href="./PRIVACY_POLICY.md"><code>PRIVACY_POLICY.md</code></a></td>
-<td>Політика конфіденційності (GDPR-орієнтований опис обробки даних).</td>
+<td>Privacy policy with GDPR-related data notes.</td>
 </tr>
 <tr>
 <td><a href="./USER_GUIDE.md"><code>USER_GUIDE.md</code></a></td>
-<td>Інструкція користувача, обмеження відповідальності, посилання на політику.</td>
+<td>User guide, limitations, and policy links.</td>
 </tr>
 </tbody>
 </table>
-<p>У застосунку після <code>npm start</code> / збірки доступні маршрути <strong><code>/privacy</code></strong> та <strong><code>/guide</code></strong> (контент підвантажується з копій файлів у <code>public/</code>, які синхронізуються скриптом <code>prestart</code> / <code>prebuild</code>).</p>
-<h2>Вимоги</h2>
+<p>After <code>npm start</code> / build, the app exposes <strong><code>/privacy</code></strong> and <strong><code>/guide</code></strong> routes. Content is loaded from copies in <code>public/</code>, synced by <code>prestart</code> / <code>prebuild</code>.</p>
+<h2>Requirements</h2>
 <ul>
-<li><strong>Node.js</strong> (рекомендовано LTS)</li>
+<li><strong>Node.js</strong> (LTS recommended)</li>
 <li><strong>npm</strong> 9+</li>
 </ul>
-<h2>Конфігурація середовища</h2>
-<p>Стандартні змінні Create React App (опційно), наприклад:</p>
+<h2>Environment Configuration</h2>
+<p>Standard optional Create React App variables, for example:</p>
 <ul>
-<li><code>PORT</code> — порт dev-сервера (за замовчуванням <code>3000</code>).</li>
-<li><code>BROWSER</code> — <code>none</code>, щоб не відкривати браузер автоматично.</li>
+<li><code>PORT</code>: development server port (default <code>3000</code>)</li>
+<li><code>BROWSER</code>: set to <code>none</code> to prevent auto-open</li>
 </ul>
-<p>Файли <code>.env.local</code> не комітяться (див. <code>.gitignore</code>).</p>
-<h2>Основні команди</h2>
-<pre class="prettyprint source lang-bash"><code>npm install              # залежності
-npm start                # dev-сервер (перед стартом копіює legal *.md у public/)
-npm run build            # production-збірка у каталог build/
-npm test                 # тести (react-scripts)
+<p><code>.env.local</code> files are ignored by git (see <code>.gitignore</code>).</p>
+<h2>Core Commands</h2>
+<pre class="prettyprint source lang-bash"><code>npm install              # install dependencies
+npm start                # run dev server (copies legal *.md files into public/ first)
+npm run build            # create production build in build/
+npm test                 # run tests (react-scripts)
 </code></pre>
-<p>Документація та якість:</p>
-<pre class="prettyprint source lang-bash"><code>npm run docs:jsdoc       # згенерувати JSDoc у docs/jsdoc/ (відкрийте docs/jsdoc/index.html)
-npm run licenses:report  # оновити LICENSE-REPORT.md (license-checker)
-npm run storybook        # Storybook на порту 6006
-npm run build-storybook  # статична збірка Storybook у storybook-static/
+<p>Documentation and quality:</p>
+<pre class="prettyprint source lang-bash"><code>npm run docs:jsdoc       # generate JSDoc into docs/jsdoc/ (open docs/jsdoc/index.html)
+npm run licenses:report  # regenerate LICENSE-REPORT.md (license-checker)
+npm run storybook        # run Storybook on port 6006
+npm run build-storybook  # build static Storybook into storybook-static/
 </code></pre>
-<h2>GDPR і cookie-банер</h2>
-<p>У корені застосунку відображається банер згоди (бібліотека <code>react-cookie-consent</code>). Тексти та посилання на політику налаштовуються у <code>src/config/cookieConsent.config.js</code>. Детальний опис категорій даних — у <code>PRIVACY_POLICY.md</code>.</p>
-<h2>Структура (скорочено)</h2>
+<h2>GDPR And Cookie Banner</h2>
+<p>The app shows a consent banner (via <code>react-cookie-consent</code>). Text and links are configured in <code>src/config/cookieConsent.config.js</code>. Full details are in <code>PRIVACY_POLICY.md</code>.</p>
+<h2>Structure (Short)</h2>
 <ul>
-<li><code>src/</code> — код React (сторінки, компоненти, контекст, хуки).</li>
-<li><code>public/</code> — статичні файли; копії <code>PRIVACY_POLICY.md</code>, <code>USER_GUIDE.md</code> та <code>LICENSE</code> створюються скриптом <code>scripts/sync-legal.cjs</code> (ці копії в <code>public/</code> не комітяться — джерело в корені репозиторію).</li>
-<li><code>docs/jsdoc/</code> — <strong>згенерована</strong> API-документація (не редагувати вручну; регенерувати <code>npm run docs:jsdoc</code>).</li>
-<li><code>.storybook/</code> — конфігурація Storybook.</li>
-<li><code>jsdoc.conf.json</code> — конфігурація JSDoc.</li>
+<li><code>src/</code>: React source (pages, components, context, hooks)</li>
+<li><code>public/</code>: static files; copies of <code>PRIVACY_POLICY.md</code>, <code>USER_GUIDE.md</code>, and <code>LICENSE</code> are generated by <code>scripts/sync-legal.cjs</code> (generated public copies are not committed)</li>
+<li><code>docs/jsdoc/</code>: generated API documentation (do not edit manually; regenerate with <code>npm run docs:jsdoc</code>)</li>
+<li><code>.storybook/</code>: Storybook configuration</li>
+<li><code>jsdoc.conf.json</code>: JSDoc configuration</li>
 </ul>
-<h2>Перевірка ліцензій залежностей</h2>
-<p>Звіт у корені <strong><code>LICENSE-REPORT.md</code></strong> створюється командою:</p>
+<h2>Dependency License Verification</h2>
+<p>The root report <strong><code>LICENSE-REPORT.md</code></strong> is generated by:</p>
 <pre class="prettyprint source lang-bash"><code>npm run licenses:report
 </code></pre>
-<p>Використовується пакет <a href="https://www.npmjs.com/package/license-checker"><code>license-checker</code></a> (обхід повного дерева залежностей). Після оновлення <code>package.json</code> варто перегенерувати звіт і закомітити оновлений файл.</p>
-<h2>Додаткова документація</h2>
+<p>It uses <a href="https://www.npmjs.com/package/license-checker"><code>license-checker</code></a> to scan the full dependency tree. Regenerate and commit the report after dependency changes.</p>
+<h2>Additional Documentation</h2>
 <ul>
-<li><strong>JSDoc:</strong> <code>npm run docs:jsdoc</code> → <code>docs/jsdoc/index.html</code>.</li>
-<li><strong>Storybook:</strong> <code>npm run storybook</code> — історії для базового компонента <code>Button</code> і складного <code>GameBoard</code>.</li>
+<li><strong>JSDoc:</strong> <code>npm run docs:jsdoc</code> -&gt; <code>docs/jsdoc/index.html</code></li>
+<li><strong>Storybook:</strong> <code>npm run storybook</code> for <code>Button</code> (base) and <code>GameBoard</code> (complex) component stories</li>
 </ul></article>
     </section>
 
@@ -130,7 +130,7 @@ npm run build-storybook  # статична збірка Storybook у storybook-
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Sun Apr 19 2026 17:26:12 GMT+0300 (за східноєвропейським літнім часом)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Sun Apr 19 2026 17:40:51 GMT+0300 (за східноєвропейським літнім часом)
 </footer>
 
 <script> prettyPrint(); </script>

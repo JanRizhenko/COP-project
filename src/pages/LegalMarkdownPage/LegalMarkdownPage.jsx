@@ -19,7 +19,7 @@ const LegalMarkdownPage = ({ fileKey }) => {
   useEffect(() => {
     setMarkdown('');
     if (!fileName) {
-      setError('Невідомий документ.');
+      setError('Unknown document.');
       return;
     }
     setError(null);
@@ -32,11 +32,11 @@ const LegalMarkdownPage = ({ fileKey }) => {
         return res.text();
       })
       .then(setMarkdown)
-      .catch(() => setError('Не вдалося завантажити файл. Запустіть npm start або npm run build (скрипт sync-legal).'));
+      .catch(() => setError('Failed to load file. Run npm start or npm run build (sync-legal script).'));
   }, [fileName]);
 
   if (!fileName) {
-    return <div className="legal-page legal-page--error">Невідомий документ.</div>;
+    return <div className="legal-page legal-page--error">Unknown document.</div>;
   }
 
   if (error) {
@@ -44,7 +44,7 @@ const LegalMarkdownPage = ({ fileKey }) => {
   }
 
   if (!markdown) {
-    return <div className="legal-page">Завантаження…</div>;
+    return <div className="legal-page">Loading...</div>;
   }
 
   return (

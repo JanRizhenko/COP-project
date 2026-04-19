@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 const GameContext = createContext();
 
 /**
- * Доступ до глобального стану гри та сценаріїв навігації.
- * @returns {object} Контекст `GameProvider`.
+ * Access to global game state and navigation scenarios.
+ * @returns {object} `GameProvider` context.
  */
 export const useGame = () => {
     const context = useContext(GameContext);
@@ -28,7 +28,7 @@ const clearAllGameStorage = () => {
 };
 
 /**
- * Провайдер стану гравця, налаштувань і збереження в `localStorage`.
+ * Provider for player state, settings, and localStorage persistence.
  * @param {{ children: React.ReactNode }} props
  */
 export const GameProvider = ({ children }) => {

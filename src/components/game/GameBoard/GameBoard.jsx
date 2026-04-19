@@ -3,10 +3,10 @@ import Rod from '../Rod/Rod';
 import './GameBoard.css';
 
 /**
- * Поле з трьома стрижнями та дисками (композиція Rod + Disk).
+ * Board with three rods and disks (Rod + Disk composition).
  * @param {object} props
- * @param {Array<Array<number>>} [props.rods] Три масиви розмірів дисків.
- * @param {Function} [props.onRodClick] Викликається з індексом стрижня.
+ * @param {Array<Array<number>>} [props.rods] Three arrays of disk sizes.
+ * @param {Function} [props.onRodClick] Called with the selected rod index.
  * @param {number|null} [props.selectedRod]
  */
 const GameBoard = ({ 

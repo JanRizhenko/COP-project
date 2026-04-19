@@ -16,8 +16,8 @@ const CookieConsentBanner = () => {
       expires={365}
       overlay
       enableDeclineButton
-      buttonText="Погоджуюсь"
-      declineButtonText="Лише необхідне"
+      buttonText="Accept"
+      declineButtonText="Essential Only"
       buttonClasses="cookie-consent__btn cookie-consent__btn--accept"
       declineButtonClasses="cookie-consent__btn cookie-consent__btn--decline"
       containerClasses="cookie-consent"
@@ -39,14 +39,14 @@ const CookieConsentBanner = () => {
       }}
     >
       <div className="cookie-consent__text">
-        <strong>{cookieConsentConfig.appName}</strong> — інформація про обробку даних (GDPR).
+        <strong>{cookieConsentConfig.appName}</strong> - data processing notice (GDPR).
         <p className="cookie-consent__summary">{cookieConsentConfig.dataProcessingSummary}</p>
         <p className="cookie-consent__links">
-          <Link to={cookieConsentConfig.privacyPath}>Політика конфіденційності</Link>
+          <Link to={cookieConsentConfig.privacyPath}>Privacy Policy</Link>
           {' · '}
-          <Link to={cookieConsentConfig.guidePath}>Інструкція користувача</Link>
+          <Link to={cookieConsentConfig.guidePath}>User Guide</Link>
         </p>
-        <p className="cookie-consent__meta">Контакт: {cookieConsentConfig.contactHint}</p>
+        <p className="cookie-consent__meta">Contact: {cookieConsentConfig.contactHint}</p>
       </div>
     </CookieConsent>
   );

@@ -1,58 +1,58 @@
-# Політика конфіденційності (Privacy Policy)
+# Privacy Policy
 
-**Останнє оновлення:** 19 квітня 2026 р.  
-**Застосунок:** Hanoi Tower Game (навчальний веб-проєкт)  
-**Відповідальна особа / автор проєкту:** Jan Rizhenko  
+**Last updated:** April 19, 2026  
+**Application:** Hanoi Tower Game  
+**Responsible person / project author:** Jan Rizhenko  
 
-Цей документ пояснює, які дані можуть оброблятися під час використання локально розгорнутого або опублікованого екземпляру застосунку, та які права мають користувачі згідно з загальним регламентом захисту даних ЄС (GDPR), де це застосовно.
+This document explains what data may be processed when using the app and what rights users may have under the EU General Data Protection Regulation (GDPR).
 
-## 1. Хто є адміністратором даних
+## 1. Data Controller
 
-Для особистого/навчального розгортання адміністратором є особа, яка контролює сервер або пристрій, на якому запущено застосунок (наприклад, автор репозиторію або організація курсу). Цей проєкт не передбачає централізованого «хмарного» облікового запису користувачів від імені автора, якщо ви самі не підключаєте сторонні сервіси.
+For personal or course use, the data controller is the person or organization that runs the server or device hosting the app. This project does not provide a central cloud account unless you add external services yourself.
 
-## 2. Які дані обробляються
+## 2. Data Processed
 
-### 2.1. Дані, що зберігаються локально у браузері
+### 2.1 Data Stored Locally In The Browser
 
-Застосунок використовує **локальне сховище браузера** (`localStorage`) для:
+The application uses **browser local storage** (`localStorage`) to:
 
-- збереження стану гри, імені гравця, налаштувань складності та прогресу;
-- збереження технічного прапорця згоди на інформаційний банер про файли cookie / політику (за наявності відповідного компонента).
+- store game state, player name, difficulty settings, and progress;
+- store a technical consent flag for the cookie/privacy information banner (if the component is enabled).
 
-Ці дані **не передаються автоматично** на сервер автора, якщо ви не налаштували власний бекенд або аналітику.
+This data is **not automatically transferred** to the author's server unless you configure your own backend or analytics.
 
-### 2.2. Логи та мережа
+### 2.2 Logs And Network Data
 
-При розгортанні на власному сервері ваш хостинг-провайдер може збирати технічні логи (IP, User-Agent, час запиту). Це визначається вашою інфраструктурою, а не кодом цього репозиторію.
+When you host the app on your own server, your hosting provider may collect technical logs (IP, User-Agent, request time). That depends on your setup, not this repository's source code.
 
-### 2.3. Аналітика та сторонні скрипти
+### 2.3 Analytics And Third-Party Scripts
 
-У базовій конфігурації репозиторію **не підключено** рекламних або аналітичних мереж. Якщо ви додасте їх самостійно, ви зобов’язані оновити цю політику та банер згоди.
+In the default project setup, ad and analytics networks are **not enabled**. If you add them, you should update this policy and the consent banner.
 
-## 3. Правова основа (GDPR)
+## 3. Legal Basis (GDPR)
 
-- **Згода** — для необов’язкових категорій даних (якщо ви їх додасте), зокрема маркетингу чи необов’язкової аналітики.  
-- **Виконання контракту / надання послуги** — мінімальні технічні дії для роботи гри на запит користувача.  
-- **Законний інтерес** — обмежено, наприклад, для базової безпеки сервера при самостійному хостингу.
+- **Consent** for optional processing categories (if added), such as marketing or optional analytics.
+- **Service operation / contract** for the minimum technical actions needed to run the game at user request.
+- **Legitimate interest** in limited cases, for example basic server security for self-hosting.
 
-## 4. Термін зберігання
+## 4. Retention Period
 
-Дані в `localStorage` зберігаються, доки користувач або розробник їх не очистить (через інтерфейс браузера або логіку застосунку). Політику варто переглядати при суттєвих змінах у коді.
+Data in `localStorage` remains until the user or developer clears it (browser controls or app logic). Review this policy when the project changes in a meaningful way.
 
-## 5. Права суб’єктів даних
+## 5. Data Subject Rights
 
-Ви можете:
+You can:
 
-- отримати доступ до даних, які самі вводите в грі (вони видимі в інтерфейсі);
-- видалити локальні дані через налаштування браузера (очищення даних сайту);
-- відкликати згоду на необов’язкові механізми, якщо такі будуть додані.
+- access data you entered in the game (visible in the interface);
+- delete local data using browser site-data settings;
+- withdraw consent for optional mechanisms if they are introduced.
 
-Запити щодо обробки даних у навчальному контексті адресуйте викладачу курсу або адміністратору середовища, у якому здано проєкт.
+If this app is used in a course, direct data-processing questions to the instructor or the admin of the platform where the project is hosted.
 
-## 6. Контакти
+## 6. Contact
 
-Питання щодо цього репозиторію: через систему здачі курсу або контакт, зазначений у `README.md`.
+Questions about this repository can be submitted through your course submission process or via contact details listed in `README.md`.
 
-## 7. Зміни
+## 7. Changes
 
-Політика може оновлюватися; актуальна версія зберігається у файлі `PRIVACY_POLICY.md` у корені проєкту.
+This policy may be updated. The latest version is always stored in `PRIVACY_POLICY.md` at the project root.

@@ -2,7 +2,7 @@ import React from 'react';
 import './Button.css';
 
 /**
- * Базова кнопка інтерфейсу з варіантами розміру та кольору.
+ * Base UI button with configurable size and variant.
  * @param {object} props
  * @param {*} props.children
  * @param {Function} [props.onClick]

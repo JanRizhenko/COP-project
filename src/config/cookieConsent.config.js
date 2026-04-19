@@ -1,5 +1,5 @@
 /**
- * GDPR-oriented copy and URLs for the cookie / local storage notice.
+ * Text and URLs for the cookie / local storage notice.
  * Adjust `contactHint` if you publish a real contact for production.
  */
 export const cookieConsentConfig = {
@@ -9,11 +9,11 @@ export const cookieConsentConfig = {
   /** User guide route. */
   guidePath: '/guide',
   /** Shown in the banner footer line. */
-  contactHint: 'Jan Rizhenko (навчальний проєкт)',
+  contactHint: 'Jan Rizhenko (course project)',
   /**
    * Describes processing aligned with this repo: localStorage for game + consent flag.
    * Not legal advice; course-specific hosting may add logging.
    */
   dataProcessingSummary:
-    'Ми використовуємо локальне сховище браузера (localStorage) для збереження прогресу гри, імені гравця та технічного прапорця згоди. Аналітика та рекламні cookie в базовій збірці не підключені.',
+    'We use browser local storage (localStorage) to keep game progress, player name, and a technical consent flag. Analytics and advertising cookies are not enabled in the default build.',
 };

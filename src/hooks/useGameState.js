@@ -1,8 +1,8 @@
 import { useState, useCallback } from 'react';
 
 /**
- * Локальний стан сторінок гри (альтернативний каркас навігації без роутера).
- * @returns {object} Поточна сторінка, налаштування та дії переходу.
+ * Local game page state (alternative navigation scaffold without router).
+ * @returns {object} Current page, settings, and transition actions.
  */
 export const useGameState = () => {
   const [currentPage, setCurrentPage] = useState('start');

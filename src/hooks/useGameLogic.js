@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 
 /**
- * Логіка переміщень, перемоги/програшу та збереження прогресу в `localStorage`.
- * @param {number} difficulty Кількість дисків (3–8).
- * @param {number|null} [maxMoves] Обмеження ходів або `null`.
- * @param {number|null} [timeLimit] Обмеження часу (сек) або `null`.
- * @returns {object} Стан гри та обробники ходів.
+ * Move logic, win/loss state handling, and localStorage progress persistence.
+ * @param {number} difficulty Number of disks (3-8).
+ * @param {number|null} [maxMoves] Move limit or `null`.
+ * @param {number|null} [timeLimit] Time limit in seconds or `null`.
+ * @returns {object} Game state and move handlers.
  */
 export const useGameLogic = (difficulty, maxMoves = null, timeLimit = null) => {
   const getStorageKey = () => `game_progress_${difficulty}`;

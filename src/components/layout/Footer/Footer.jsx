@@ -10,12 +10,12 @@ const Footer = () => {
           2026 Tower of Hanoi | Educational Project | Made By Rizhenko Jan
         </p>
         <p className="footer__legal">
-          <Link to="/privacy">Політика конфіденційності</Link>
+          <Link to="/privacy">Privacy Policy</Link>
           <span aria-hidden="true"> · </span>
-          <Link to="/guide">Інструкція користувача</Link>
+          <Link to="/guide">User Guide</Link>
           <span aria-hidden="true"> · </span>
           <a href={`${process.env.PUBLIC_URL || ''}/LICENSE`} target="_blank" rel="noreferrer">
-            Ліцензія MIT
+            MIT License
           </a>
         </p>
       </div>

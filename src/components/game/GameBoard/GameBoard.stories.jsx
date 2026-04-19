@@ -16,12 +16,12 @@ const meta = {
   argTypes: {
     rods: {
       control: 'object',
-      description: 'Три масиви дисків (розміри знизу вгору на кожному стрижні).',
+      description: 'Three rod arrays with disk sizes.',
     },
     selectedRod: {
       control: 'select',
       options: [null, 0, 1, 2],
-      description: 'Індекс обраного стрижня для переміщення.',
+      description: 'Selected rod index for move actions.',
     },
   },
   decorators: [
@@ -35,7 +35,7 @@ const meta = {
 
 export default meta;
 
-/** Початкова позиція для 3 дисків. */
+/** Initial position for 3 disks. */
 export const InitialThreeDisks = {
   args: {
     rods: [[3, 2, 1], [], []],
@@ -43,7 +43,7 @@ export const InitialThreeDisks = {
   },
 };
 
-/** Середина партії з виділеним стрижнем. */
+/** Mid-game state with selected rod. */
 export const MidGameSelection = {
   args: {
     rods: [[3], [2], [1]],
@@ -51,7 +51,7 @@ export const MidGameSelection = {
   },
 };
 
-/** Майже вирішена головоломка. */
+/** Nearly solved puzzle. */
 export const NearlySolved = {
   args: {
     rods: [[], [], [3, 2, 1]],

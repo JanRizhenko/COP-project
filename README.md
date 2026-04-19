@@ -1,81 +1,122 @@
 # Hanoi Tower Game
 
+<<<<<<< HEAD
 Навчальний веб-проєкт - гра «Вежі Ганоя» на **React 18** і **react-scripts 5** (Create React App). Репозиторій містить політику конфіденційності, інструкцію користувача, згенеровану JSDoc-документацію, Storybook та звіт про ліцензії залежностей.
+=======
+Tower of Hanoi game built with **React 18** and **react-scripts 5** (Create React App). The repository includes privacy/legal docs, generated JSDoc docs, Storybook, and a dependency license report.
+>>>>>>> faf27d9 (feat: translate docs and legal UI to English)
 
-## Авторство
+## Authorship
 
+<<<<<<< HEAD
 **Jan Rizhenko** - автор коду та документації цього репозиторію (див. також підпис у футері застосунку).
+=======
+**Jan Rizhenko** is the author of the code and documentation in this repository (also listed in the app footer).
+>>>>>>> faf27d9 (feat: translate docs and legal UI to English)
 
-## Ліцензія
+## License
 
-Проєкт поширюється на умовах **MIT**. Повний текст: файл [`LICENSE`](./LICENSE) у корені.
+This project is distributed under the **MIT** license. Full text: [`LICENSE`](./LICENSE) in the repository root.
 
+<<<<<<< HEAD
 Залежності `npm` мають власні ліцензії; зведений звіт генерується інструментом `license-checker` і зберігається у [`LICENSE-REPORT.md`](./LICENSE-REPORT.md) (перегенерація - нижче).
+=======
+`npm` dependencies have their own licenses. The report is generated with `license-checker` and stored in [`LICENSE-REPORT.md`](./LICENSE-REPORT.md).
+>>>>>>> faf27d9 (feat: translate docs and legal UI to English)
 
-## Юридичні та інформаційні документи
+## Legal And Info Documents
 
+<<<<<<< HEAD
 | Файл | Опис |
 | -- | -- |
 | [`PRIVACY_POLICY.md`](./PRIVACY_POLICY.md) | Політика конфіденційності (GDPR-орієнтований опис обробки даних). |
 | [`USER_GUIDE.md`](./USER_GUIDE.md) | Інструкція користувача, обмеження відповідальності, посилання на політику. |
+=======
+| File | Description |
+| --- | --- |
+| [`PRIVACY_POLICY.md`](./PRIVACY_POLICY.md) | Privacy policy with GDPR-related data notes. |
+| [`USER_GUIDE.md`](./USER_GUIDE.md) | User guide, limitations, and policy links. |
+>>>>>>> faf27d9 (feat: translate docs and legal UI to English)
 
-У застосунку після `npm start` / збірки доступні маршрути **`/privacy`** та **`/guide`** (контент підвантажується з копій файлів у `public/`, які синхронізуються скриптом `prestart` / `prebuild`).
+After `npm start` / build, the app exposes **`/privacy`** and **`/guide`** routes. Content is loaded from copies in `public/`, synced by `prestart` / `prebuild`.
 
-## Вимоги
+## Requirements
 
-- **Node.js** (рекомендовано LTS)
+- **Node.js** (LTS recommended)
 - **npm** 9+
 
-## Конфігурація середовища
+## Environment Configuration
 
-Стандартні змінні Create React App (опційно), наприклад:
+Standard optional Create React App variables, for example:
 
+<<<<<<< HEAD
 - `PORT` - порт dev-сервера (за замовчуванням `3000`).
 - `BROWSER` - `none`, щоб не відкривати браузер автоматично.
+=======
+- `PORT`: development server port (default `3000`)
+- `BROWSER`: set to `none` to prevent auto-open
+>>>>>>> faf27d9 (feat: translate docs and legal UI to English)
 
-Файли `.env.local` не комітяться (див. `.gitignore`).
+`.env.local` files are ignored by git (see `.gitignore`).
 
-## Основні команди
-
-```bash
-npm install              # залежності
-npm start                # dev-сервер (перед стартом копіює legal *.md у public/)
-npm run build            # production-збірка у каталог build/
-npm test                 # тести (react-scripts)
-```
-
-Документація та якість:
+## Core Commands
 
 ```bash
-npm run docs:jsdoc       # згенерувати JSDoc у docs/jsdoc/ (відкрийте docs/jsdoc/index.html)
-npm run licenses:report  # оновити LICENSE-REPORT.md (license-checker)
-npm run storybook        # Storybook на порту 6006
-npm run build-storybook  # статична збірка Storybook у storybook-static/
+npm install              # install dependencies
+npm start                # run dev server (copies legal *.md files into public/ first)
+npm run build            # create production build in build/
+npm test                 # run tests (react-scripts)
 ```
 
-## GDPR і cookie-банер
+Documentation and quality:
 
+```bash
+npm run docs:jsdoc       # generate JSDoc into docs/jsdoc/ (open docs/jsdoc/index.html)
+npm run licenses:report  # regenerate LICENSE-REPORT.md (license-checker)
+npm run storybook        # run Storybook on port 6006
+npm run build-storybook  # build static Storybook into storybook-static/
+```
+
+## GDPR And Cookie Banner
+
+<<<<<<< HEAD
 У корені застосунку відображається банер згоди (бібліотека `react-cookie-consent`). Тексти та посилання на політику налаштовуються у `src/config/cookieConsent.config.js`. Детальний опис категорій даних - у `PRIVACY_POLICY.md`.
+=======
+The app shows a consent banner (via `react-cookie-consent`). Text and links are configured in `src/config/cookieConsent.config.js`. Full details are in `PRIVACY_POLICY.md`.
+>>>>>>> faf27d9 (feat: translate docs and legal UI to English)
 
-## Структура (скорочено)
+## Structure (Short)
 
+<<<<<<< HEAD
 - `src/` - код React (сторінки, компоненти, контекст, хуки).
 - `public/` - статичні файли; копії `PRIVACY_POLICY.md`, `USER_GUIDE.md` та `LICENSE` створюються скриптом `scripts/sync-legal.cjs` (ці копії в `public/` не комітяться - джерело в корені репозиторію).
 - `docs/jsdoc/` - **згенерована** API-документація (не редагувати вручну; регенерувати `npm run docs:jsdoc`).
 - `.storybook/` - конфігурація Storybook.
 - `jsdoc.conf.json` - конфігурація JSDoc.
+=======
+- `src/`: React source (pages, components, context, hooks)
+- `public/`: static files; copies of `PRIVACY_POLICY.md`, `USER_GUIDE.md`, and `LICENSE` are generated by `scripts/sync-legal.cjs` (generated public copies are not committed)
+- `docs/jsdoc/`: generated API documentation (do not edit manually; regenerate with `npm run docs:jsdoc`)
+- `.storybook/`: Storybook configuration
+- `jsdoc.conf.json`: JSDoc configuration
+>>>>>>> faf27d9 (feat: translate docs and legal UI to English)
 
-## Перевірка ліцензій залежностей
+## Dependency License Verification
 
-Звіт у корені **`LICENSE-REPORT.md`** створюється командою:
+The root report **`LICENSE-REPORT.md`** is generated by:
 
 ```bash
 npm run licenses:report
 ```
 
-Використовується пакет [`license-checker`](https://www.npmjs.com/package/license-checker) (обхід повного дерева залежностей). Після оновлення `package.json` варто перегенерувати звіт і закомітити оновлений файл.
+It uses [`license-checker`](https://www.npmjs.com/package/license-checker) to scan the full dependency tree. Regenerate and commit the report after dependency changes.
 
-## Додаткова документація
+## Additional Documentation
 
+<<<<<<< HEAD
 - **JSDoc:** `npm run docs:jsdoc` → `docs/jsdoc/index.html`.
 - **Storybook:** `npm run storybook` - історії для базового компонента `Button` і складного `GameBoard`.
+=======
+- **JSDoc:** `npm run docs:jsdoc` -> `docs/jsdoc/index.html`
+- **Storybook:** `npm run storybook` for `Button` (base) and `GameBoard` (complex) component stories
+>>>>>>> faf27d9 (feat: translate docs and legal UI to English)

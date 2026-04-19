@@ -1,7 +1,7 @@
 {
   "name": "hanoi-tower-game",
   "version": "1.0.0",
-  "description": "Tower of Hanoi Game - Структурований каркас застосунку",
+  "description": "Tower of Hanoi Game - structured application scaffold",
   "private": true,
   "dependencies": {
     "formik": "^2.4.9",
