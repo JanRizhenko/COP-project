@@ -20,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "docs:jsdoc": "jsdoc -c jsdoc.conf.json",
+    "docs:jsdoc": "jsdoc -c jsdoc.conf.json && node scripts/postprocess-jsdoc.cjs",
     "licenses:report": "node scripts/license-report.cjs",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
